@@ -8,9 +8,21 @@ into a synced folder — so cloning this fork is enough to reproduce the build o
 ## 1. Clone the fork
 
 ```sh
-git clone https://github.com/duuwhang/qmk_firmware.git
+git clone git@github.com:duuwhang/qmk_firmware.git
 cd qmk_firmware
-git checkout whangboard2
+git checkout whangboard
+```
+
+### Optional: sparse-checkout to keep the working tree small
+
+This repo has 1000+ keyboard directories under `keyboards/`; sparse-checkout keeps full git
+history (so rebasing against upstream still works) but only materializes the directories this
+keymap actually needs:
+
+```sh
+git sparse-checkout init --cone
+git sparse-checkout set keyboards/keyball keyboards/common keyboards/converter users layouts \
+    quantum tmk_core platforms drivers builddefs data lib docs util
 ```
 
 ## 2. Install the QMK build toolchain (one-time, per machine)
@@ -62,5 +74,10 @@ This compiles the `german` keymap and flashes it over USB. Plain `make keyball/k
 
 - `keyball61_german_env/` is gitignored — only `keyball61_german_env-requirements.txt` is
   tracked, so recreate the venv locally on each machine (step 3).
-- Keep `qmk_firmware.whangboard2` rebased on whatever upstream you track for this keyboard;
-  the keymap itself has no upstream dependency beyond `keyboards/keyball/keyball61/`.
+- The `qmk` CLI's math parser (`lib/python/qmk/math.py`) used `ast.Num`, which Python 3.12+
+  removed; this fork patches it to `ast.Constant`/`node.value`. Without this, `qmk`/`make`
+  fail immediately with `AttributeError: module 'ast' has no attribute 'Num'` on newer Python.
+- `whangboard` already contains every commit on upstream `qmk/qmk_firmware` master, so there's
+  nothing to rebase there. It does **not** share recent history with `idank/qmk_firmware`'s
+  `keyball61-rp2040` branch (diverged ~38 commits before the shared base) — rebasing onto that
+  branch produces conflicts on unrelated keyboards almost immediately and isn't recommended.
