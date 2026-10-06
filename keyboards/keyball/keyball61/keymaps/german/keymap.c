@@ -110,14 +110,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 //                                                                      Number/Special Layer
   [4] = LAYOUT_universal(
-    DE_ACUT , DE_HASH , DE_DLR  , DE_EURO , DE_PERC , DE_SLSH ,                                     DE_LABK , DE_RABK         , DE_PIPE           , DE_AMPR   , _______ , KC_PGUP ,
+    DE_ACUT , DE_HASH , DE_DLR  , DE_EURO , DE_PERC , DE_SLSH ,                                     DE_LABK , DE_RABK         , DE_PIPE           , DE_AMPR   , DE_DEG  , KC_PGUP ,
     DE_GRV  , DE_COLN , DE_7    , DE_8    , DE_9    , DE_ASTR ,                                     _______ , KC_BRIGHTNESS_UP, KC_BRIGHTNESS_DOWN, KC_MUTE   , _______ , KC_PGDN ,
     DE_TILD , DE_COMM , DE_4    , DE_5    , DE_6    , DE_EQL  ,                                     _______ , KC_KB_VOLUME_UP , KC_KB_VOLUME_DOWN , KC_KB_MUTE, _______ , KC_CAPS ,
     DE_SECT , DE_DOT  , DE_1    , DE_2    , DE_3    , DE_PLUS , DE_MINS ,                 _______ , _______ , KC_MPLY         , KC_MNXT           , KC_MPRV   , _______ , KC_INS  ,
     DE_MICR , DE_SUP2 , DE_SUP3 , DE_0    , _______ , _______ , _______ ,                 _______ , _______ , _______         , _______           , _______   , _______ , KC_PAUS
   ),
 //                              LEFT GERMAN                                                                                           RIGHT GERMAN
-//  ´       , #       , $       , €       , %       , /       ,                                       <       , >              , |             , &            , _______ , PageUp  ,
+//  ´       , #       , $       , €       , %       , /       ,                                       <       , >              , |             , &            , °       , PageUp  ,
 //  `       , :       , 7       , 8       , 9       , *       ,                                       _______ , DisplayBrighter, DisplayDimmer , MicMute      , _______ , PageDown,
 //  ~       , ,       , 4       , 5       , 6       , =       ,                                       _______ , SpeakerLouder  , SpeakerQuieter, SpeakerMute  , _______ , CapsLock,
 //  §       , .       , 1       , 2       , 3       , +       , -       ,                   _______ , _______ , MediaStop/Play , MediaNext     , MediaPrevious, _______ , Einfg   ,
