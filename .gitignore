@@ -104,6 +104,7 @@ secrets.tar
 __pycache__
 .python-version
 .venv
+keyball61_german_env/
 
 # Prerequisites for updating ChibiOS
 /util/fmpp*
