@@ -50,14 +50,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //  Print   , !       , ?       , "       , /             , \              ,
 //  @       , q       , w       , e       , r             , t              ,
 //  Tab     , a       , s       , d       , f             , g              ,
-//  Shift   , y       , x       , c       , v             , b              , '              ,
-//  Layer3  , &       , Super   , Alt     , Ctrl or Escape, Layer2 or Space, Layer5 or Enter,
+//  Shift   , y       , x       , c       , v             , b              , '       ,
+//  Layer5  , &       , Super   , Alt     , Ctrl or Escape, Layer3 or Space, Enter   ,
 //                              RIGHT GERMAN                                                                                          RIGHT GERMAN
 //                                                                                                        (              , )       , {       , }          , [           , ]       ,
 //                                                                                                        z              , u       , i       , o          , p           , ü       ,
 //                                                                                                        h              , j       , k       , Layer6 or l, ö           , ä       ,
 //                                                                                   ToggleLayer2       , n              , m       , ,       , .          , -           , ß       ,
-//                                                                                   Layer4 or Backspace, Shift or Delete, _______ , _______ , _______    , ToggleLayer5, Layer3  ,
+//                                                                                   Layer4 or Backspace, Shift or Delete, _______ , _______ , _______    , ToggleLayer2, Layer5  ,
 
 
 //                                                                                   Blender Layer
@@ -73,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //  Tab     , m       , q       , w       , e       , r       ,                                                     _______ , Left    , Down    , Right   , l           , _______ ,
 //  i       , Shift   , a       , s       , d       , f       ,                                                     _______ , Mouse 1 , Mouse 2 , Mouse 3 , _______     , _______ ,
 //  p       , Ctrl    , y       , x       , c       , v       , b       ,                                 _______ , _______ , Mouse 4 , Mouse 5 , _______ , _______     , _______ ,
-//  h       , u       , _______ , Alt     , Ctrl    , Space   , Enter   ,                                 _______ , Shift   , _______ , _______ , _______ , ToggleLayer5, _______ ,
+//  h       , u       , _______ , Alt     , Ctrl    , Space   , Enter   ,                                 _______ , _______ , _______ , _______ , _______ , ToggleLayer1, _______ ,
 
 
 //                                                                                   Gaming Layer
@@ -89,7 +89,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //  Tab     , m       , q       , w       , e       , r       ,                                                     _______ , Left    , Down    , Right   , l           , _______ ,
 //  i       , Shift   , a       , s       , d       , f       ,                                                     _______ , Mouse 1 , Mouse 2 , Mouse 3 , _______     , _______ ,
 //  p       , Ctrl    , y       , x       , c       , v       , b       ,                                 _______ , _______ , Mouse 4 , Mouse 5 , _______ , _______     , _______ ,
-//  h       , u       , _______ , Alt     , Ctrl    , Space   , Enter   ,                                 _______ , Shift   , _______ , _______ , _______ , ToggleLayer5, _______ ,
+//  h       , u       , _______ , Alt     , Ctrl    , Space   , Enter   ,                                 _______ , _______ , _______ , _______ , _______ , ToggleLayer2, _______ ,
 
 
 //                                                                        Control/Shortcut/Mouse Layer
@@ -104,7 +104,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //  Run Code , _______ , Console , Open    , New Folder, FindInFiles,                                     _______     , Pos 1   , Up      , End               , WinUp   , WinDown ,
 //  Debug    , CloseApp, CloseTab, NewTab  , Reload    , Replace    ,                                     MultiSelect , Left    , Down    , Right             , WinLeft , WinRight,
 //  SwitchApp, Undo    , Redo    , Copy    , Paste     , Find       ,                                     ControlClick, Mouse 1 , Mouse 2 , Layer6 or Mouse 3 , FillForm, DarkWebs,
-//  SelectAll, Rename  , Save    , Cut     , Duplicate , Bookmark   , _______ ,                 _______ , _______     , Mouse 4 , Mouse 5 , _______           , _______ , _______ ,
+//  SelectAll, Rename  , Save    , Cut     , Duplicate , Bookmark   , _______ ,             ToggleLayer3, _______     , Mouse 4 , Mouse 5 , _______           , _______ , _______ ,
 //  _______  , _______ , _______ , _______ , _______   , _______    , _______ ,                 _______ , _______     , _______ , _______ , _______           , _______ , _______ ,
 
 
@@ -134,11 +134,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 //  AML = Automatic Mouse Layer, CPI = Trackball Speed
 //                              LEFT GERMAN                                                                                           RIGHT GERMAN
-//  Bootloader, ToggleAML, +50AMLtimeout, -50AMLtimeout, _______ , _______ ,                                       _______ , _______ , _______ , _______ , _______   , Bootloader ,
-//  _______   , _______  , _______      , _______      , _______ , _______ ,                                       _______ , _______ , _______ , _______ , _______   , _______    ,
-//  _______   , _______  , _______      , _______      , _______ , _______ ,                                       _______ , _______ , _______ , _______ , _______   , _______    ,
-//  _______   , _______  , _______      , _______      , _______ , _______ , ClearMemory,             ClearMemory, -1000CPI, -100CPI , +100CPI , +1000CPI, SaveConfig, ResetConfig,
-//  Bootloader, _______  , Left         , Down         , Up      , Right   , _______    ,             _______    , _______ , _______ , _______ , _______ , _______   , Bootloader ,
+//  Bootloader , ToggleAML , +50AMLtimeout, -50AMLtimeout, _______   , _______     ,                             _______  , _______ , _______ , _______ , _______   , Bootloader  ,
+//  _______    , _______   , _______      , _______      , _______   , _______     ,                             _______  , _______ , _______ , _______ , _______   , _______     ,
+//  ResetConfig, SaveConfig, -100CPI      , +100CPI      , -1000CPI  , +1000CPI    ,                             -1000CPI , -100CPI , +100CPI , +1000CPI, SaveConfig, ResetConfig ,
+//  _______    , _______   , ScrollFaster , ScrollSlower , HoldScroll, ToggleScroll, ClearMemory,   ClearMemory, Pos1     , PageDown, PageUp  , End     , _______   , _______     ,
+//  Bootloader , _______   , Left         , Down         , Up        , Right       , _______    ,   _______    , Backspace, _______ , _______ , _______ , ToggleLayer1, Bootloader,
 
 
 //                                                                                    Scroll Layer
