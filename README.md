@@ -5,6 +5,20 @@ controller, PMW3360 trackball on one half, OLED on both halves). The keymap live
 `keyboards/keyball/keyball61/keymaps/german/` and is a real, committed file — not a symlink
 into a synced folder — so cloning this fork is enough to reproduce the build on any machine.
 
+## Quick reference: already set up
+
+If this machine already has the repo cloned, the toolchain installed, and the venv created
+(steps 1-4 below), building and flashing is just:
+
+```sh
+cd ~/Projects/Keyboard/qmk_firmware/
+source keyball61_german_env/bin/activate
+make keyball/keyball61:german:flash -j8
+```
+
+Keyball61 needs to be plugged in and in bootloader mode (double-tap reset, or hold the boot
+button while plugging in) before running this.
+
 ## 1. Clone the fork
 
 ```sh
