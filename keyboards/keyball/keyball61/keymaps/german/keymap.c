@@ -21,6 +21,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "quantum.h"
 #include "keymap_german.h"
 
+enum custom_keycodes { CTL_CLK = KEYBALL_SAFE_RANGE };
+
 // clang-format off
 // Priority 1: a-z [öäüß] Enter Backspace Delete Super(LeftSuper) Tab Pos1=Home End Escape [Shift(LeftShift)] [Ctrl(LeftCtrl)] [Alt(LeftAlt)] [AltGr(LeftAlt)] [Fn] Mouse1 Mouse2 Mouse3 Scroll Mouse4(Back) Mouse5(Next)
 // Priority 2: 0-9 () !?",.-+=*/\ ArrowKeys SideScroll(Shift on Layer 5)
@@ -96,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [3] = LAYOUT_universal(
     S(KC_F10), _______ , KC_F12  , KC_F4   , C(S(DE_N)), LCA(DE_F),                                       _______      , KC_HOME , KC_UP   , KC_END       , G(KC_UP)  , G(KC_DOWN),
     KC_F9    , A(KC_F4), C(DE_W) , C(DE_T) , C(DE_R)   , C(DE_H)  ,                                       A(S(KC_BTN1)), KC_LEFT , KC_DOWN , KC_RGHT      , G(KC_LEFT), G(KC_RGHT),
-    KC_TAB   , C(DE_Z) , C(DE_Y) , C(DE_C) , C(DE_V)   , C(DE_F)  ,                                       C(KC_BTN1)   , KC_BTN1 , KC_BTN2 , LT(6,KC_BTN3), C(S(DE_L)), LSA(DE_A) ,
+    KC_TAB   , C(DE_Z) , C(DE_Y) , C(DE_C) , C(DE_V)   , C(DE_F)  ,                                       CTL_CLK      , KC_BTN1 , KC_BTN2 , LT(6,KC_BTN3), C(S(DE_L)), LSA(DE_A) ,
     C(DE_A)  , KC_F2   , C(DE_S) , C(DE_X) , C(DE_D)   , C(DE_B)  , _______ ,                   TG(3)   , _______      , KC_BTN4 , KC_BTN5 , _______      , _______   , _______   ,
     _______  , _______ , _______ , _______ , _______   , _______  , _______ ,                   _______ , _______      , _______ , _______ , _______      , _______   , _______
   ),
@@ -167,6 +169,22 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
         default:
             return false;
     }
+}
+
+// Ctrl+Left Click: hold Ctrl briefly before clicking, as keyboard and mouse reports are sent separately
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (keycode == CTL_CLK) {
+        if (record->event.pressed) {
+            register_mods(MOD_BIT(KC_LCTL));
+            wait_ms(30);
+            register_code(KC_BTN1);
+        } else {
+            unregister_code(KC_BTN1);
+            unregister_mods(MOD_BIT(KC_LCTL));
+        }
+        return false;
+    }
+    return true;
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
